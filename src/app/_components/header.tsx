@@ -11,8 +11,8 @@ const Header = () => {
         </div>
         <div className='flex items-center gap-2 bg-white rounded-lg w-fit px-2 text-myBlack font-semibold'>
             <ShoppingCart/>
-            <p>Cart</p>
-            <p className='bg-myButton rounded-full p-1 px-2'>2</p>
+            <p className='md:flex hidden'>Cart</p>
+            <p className='bg-myButton rounded-full p-1 px-2 md:flex hidden'>2</p>
         </div>
 
     </div>
