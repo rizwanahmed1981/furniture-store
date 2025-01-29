@@ -4,6 +4,7 @@ import yellowch from '../assets/images/yellow_ch.png'
 import pinkch from '../assets/images/pink_ch.png'
 import white2ch from '../assets/images/white2_ch.png'
 
+
 import Image from 'next/image'
 
 const Card = [
@@ -38,19 +39,26 @@ const Card = [
 
 const Featured = () => {
     return (
-        <div className='flex flex-col md:flex-row capitalize gap-6 p-6' >
+        <div>
+            {/* heading */}
+            <h1 className='text-myBlack font-semibold text-2xl px-8 my-6 underline'>
+                Featured Products
+            </h1>
+
+            {/* Products section */}
+        <div className='flex flex-col md:flex-row capitalize gap-6 p-6 font-semibold text-myBlack' >
             {Card.map((chair, index: number) => (
                 <ul key={index}>
                     <li className='flex flex-col gap-6 items-center'>
                         <Image src={chair.image} alt='white chair image' width={500} height={500} />
                         <h2>{chair.name}</h2>
                         <p>{chair.description}</p>
-                        <p>Price: {chair.price}</p>
+                        <p>Price: <span  className='text-myButton'> ${chair.price}</span></p>
                     </li>
                 </ul>
             ))}
         </div>
-
+        </div>
 
     )
 }
