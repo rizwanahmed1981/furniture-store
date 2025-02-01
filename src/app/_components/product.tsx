@@ -19,7 +19,7 @@ const Product = () => {
                 <h1 className='text-myBlack font-semibold text-2xl md:-rotate-90 md:text-nowrap text-wrap text-center uppercase'>
                     Explore new and popular styles
                 </h1>
-            </div>
+            </div>  D 
             {/* product collection section*/}
             <div className='grid md:grid-cols-12 gap-4  items-center md:w-[90%]'>
                 <div className='md:col-span-6 md:row-span-2'>

@@ -29,7 +29,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className='flex flex-col gap-3 '>
-                    <Link href={'/'} className='text-lg font-semibold opacity-75'> Category</Link>
+                    <Link href={'/products'} className='text-lg font-semibold opacity-75'> Category</Link>
                     <div className='flex flex-col gap-3 font-semibold' >
                         <Link href={'/'}> sofa</Link>
                         <Link href={'/'}> Arm Chair</Link>

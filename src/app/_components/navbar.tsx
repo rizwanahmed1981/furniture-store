@@ -17,7 +17,7 @@ const Navbar = () => {
             <div className='text-myBlack opacity-70 hidden md:flex items-center gap-4 hover:cursor-pointer'>
                 <Link href={'/'} >Home</Link>
                 <Link href={'/'} >Shop</Link>
-                <Link href={'/'} >Product</Link>
+                <Link href={'/products'} >Product</Link>
                 <Link href={'/'} >Pages</Link>
                 <Link href={'/'} >About</Link>
             </div>
@@ -28,7 +28,7 @@ const Navbar = () => {
                         <DropdownMenuSeparator />
                         <DropdownMenuItem className='mx-4'><Link href={'/'} >Home</Link></DropdownMenuItem>
                         <DropdownMenuItem className='mx-4'><Link href={'/'} >Shop</Link></DropdownMenuItem>
-                        <DropdownMenuItem className='mx-4'><Link href={'/'} >Product</Link></DropdownMenuItem>
+                        <DropdownMenuItem className='mx-4'><Link href={'/products'} >Product</Link></DropdownMenuItem>
                         <DropdownMenuItem className='mx-4'><Link href={'/'} >Pages</Link></DropdownMenuItem>
                         <DropdownMenuItem className='mx-4'><Link href={'/'} >About</Link></DropdownMenuItem>
                     </DropdownMenuContent>
