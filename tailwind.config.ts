@@ -14,6 +14,7 @@ const config: Config = {
   			myButton: '#029FAE',
   			myBgGrey: '#F0F2F3',
   			myWhiteBg: '#FFFFFF',
+  			myCard: '#007580',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

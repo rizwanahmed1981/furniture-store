@@ -16,10 +16,10 @@ const Navbar = () => {
         <div className='h-[100px] bg-myWhiteBg p-6 flex items-center justify-between shadow-md font-bold'>
             <div className='text-myBlack opacity-70 hidden md:flex items-center gap-4 hover:cursor-pointer'>
                 <Link href={'/'} >Home</Link>
-                <Link href={'/'} >Shop</Link>
-                <Link href={'/products'} >Product</Link>
-                <Link href={'/'} >Pages</Link>
-                <Link href={'/'} >About</Link>
+                <Link href={'/prodcuts'} >Shop</Link>
+                <Link href={'/products'} >Products</Link>
+                <Link href={'/contact'} >Contact</Link>
+                <Link href={'/about'} >About</Link>
             </div>
             <div className='md:hidden px-3 hover:cursor-pointer'>
                 <DropdownMenu >
@@ -27,10 +27,10 @@ const Navbar = () => {
                     <DropdownMenuContent>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem className='mx-4'><Link href={'/'} >Home</Link></DropdownMenuItem>
-                        <DropdownMenuItem className='mx-4'><Link href={'/'} >Shop</Link></DropdownMenuItem>
-                        <DropdownMenuItem className='mx-4'><Link href={'/products'} >Product</Link></DropdownMenuItem>
-                        <DropdownMenuItem className='mx-4'><Link href={'/'} >Pages</Link></DropdownMenuItem>
-                        <DropdownMenuItem className='mx-4'><Link href={'/'} >About</Link></DropdownMenuItem>
+                        <DropdownMenuItem className='mx-4'><Link href={'/products'} >Shop</Link></DropdownMenuItem>
+                        <DropdownMenuItem className='mx-4'><Link href={'/products'} >Products</Link></DropdownMenuItem>
+                        <DropdownMenuItem className='mx-4'><Link href={'/contact'} >Contact</Link></DropdownMenuItem>
+                        <DropdownMenuItem className='mx-4'><Link href={'/about'} >About</Link></DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>

@@ -2,6 +2,7 @@
 import { Button } from '@/components/ui/button'
 import { Clock1, MapPin, PhoneCall } from 'lucide-react'
 import React from 'react'
+import SlugCard from '../_components/slug_card'
 
 const Contact = () => {
     return (
@@ -57,6 +58,7 @@ const Contact = () => {
                     <Button className='bg-myButton hover:cursor-pointer hover:bg-emerald-500 w-fit p-6'>Submit</Button>
                 </div>
             </div>
+            
         </div>
     )
 }

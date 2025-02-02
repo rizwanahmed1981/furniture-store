@@ -42,10 +42,11 @@ const Footer = () => {
                 <div className='flex flex-col gap-3 '>
                     <Link href={'/'} className='text-lg font-semibold opacity-75'> support</Link>
                     <div className='flex flex-col gap-3 font-semibold' >
-                        <Link href={'/'}> help & support</Link>
-                        <Link href={'/'}> terms & conditions</Link>
-                        <Link href={'/'}>privacy policy</Link>
-                        <Link href={'/'}> help</Link>
+                        <Link href={'/contact'}> Contact</Link>
+                        <Link href={'/faq'}>FAQ's</Link>
+                        <Link href={'/faq'}>privacy policy</Link>
+                        <Link href={'/contact'}> help</Link>
+                        <Link href={'/about'}> about</Link>
                     </div>
                 </div>
                 <div className='flex flex-col gap-3 items-center md:items-start '>
