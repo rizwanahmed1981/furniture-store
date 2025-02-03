@@ -2,7 +2,7 @@
 import { Button } from '@/components/ui/button'
 import { Clock1, MapPin, PhoneCall } from 'lucide-react'
 import React from 'react'
-import SlugCard from '../_components/slug_card'
+
 
 const Contact = () => {
     return (

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { ShoppingCart } from 'lucide-react'
-import NewsLetter from '../_components/newsletter'
+
 import { client } from "@/sanity/lib/client";
 import Link from 'next/link';
 import { fiveProducts } from "@/sanity/lib/querie";

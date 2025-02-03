@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+
 import whitech from '../assets/images/white_ch.png'
 import yellowch from '../assets/images/yellow_ch.png'
 import pinkch from '../assets/images/pink_ch.png'

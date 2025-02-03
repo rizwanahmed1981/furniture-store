@@ -4,11 +4,11 @@ import yellowch from '../assets/images/yellow_ch.png'
 import pinkch from '../assets/images/pink_ch.png'
 import woodench from '../assets/images/wooden_chair.png'
 import blackch from '../assets/images/black_pillow_ch.png'
-import deskch from '../assets/images/desk_chair.png'
+
 import white2ch from '../assets/images/white2_ch.png'
-import wingch from '../assets/images/wing_chair.png'
+
 import Image from 'next/image'
-import { ShoppingCart } from 'lucide-react'
+
 
 
 const Card = [

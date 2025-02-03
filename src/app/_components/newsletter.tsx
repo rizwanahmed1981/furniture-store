@@ -38,7 +38,7 @@ const NewsLetter = () => {
             </div>
             {/* product Images */}
             <div className='grid md:grid-cols-6 capitalize gap-6 p-6 font-semibold text-myBlack' >
-                {product.map((product, index: number) => (
+                {product.map((product) => (
                     <ul key={product._id}>
                         <li className='flex flex-col gap-6 items-center md:items-start'>
                             {product.productImage && (
