@@ -1,7 +1,7 @@
 export interface Product {
     _id: string;
     title: string;
-    productImage?: {
+    productImage: {
         asset: {
             _ref: string;
             _type: "image";
@@ -9,7 +9,7 @@ export interface Product {
     };
     price: number;
     description?: string;
-    discountPercentage:number;
+    discountPercentage: number;
 
     slug: {
         _type: "slug";

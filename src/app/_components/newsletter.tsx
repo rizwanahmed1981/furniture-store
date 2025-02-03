@@ -1,60 +1,25 @@
 import { Button } from '@/components/ui/button'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import whitech from '../assets/images/white_ch.png'
-import yellowch from '../assets/images/yellow_ch.png'
-import pinkch from '../assets/images/pink_ch.png'
-import deskch from '../assets/images/desk_chair.png'
-import white2ch from '../assets/images/white2_ch.png'
-import blackch from '../assets/images/black_pillow_ch.png'
-
-
-
-
-const Card = [
-    {
-        name: "White Chair",
-        price: 3000,
-        description: "Comfortable white chair",
-        image: whitech
-    },
-    {
-        name: "Yellow Chair",
-        price: 3200,
-        description: "Stylish yellow chair",
-        image: yellowch
-    },
-    {
-        name: "Pink Chair",
-        price: 3500,
-        description: "Elegant pink chair",
-        image: pinkch
-    },
-    {
-        name: "White sofa Chair",
-        price: 3000,
-        description: "comfortable white chair",
-        image: white2ch
-    },
-    {
-        name: "desk Chair",
-        price: 3000,
-        description: "Comfortable white chair",
-        image: deskch
-    },
-    {
-        name: "Black Chair",
-        price: 3200,
-        description: "Stylish Black chair",
-        image: blackch
-    },
-
-]
+import { Product } from '../../../types/prodcuts'
+import { client } from '@/sanity/lib/client'
+import { sixProducts } from '@/sanity/lib/querie'
+import { urlFor } from '@/sanity/lib/image'
 
 
 
 
 const NewsLetter = () => {
+    const [product, setProduct] = useState<Product[]>([])
+
+    useEffect(() => {
+        async function fetchProduct() {
+            const fetchedProduct: Product[] = await client.fetch(sixProducts)
+            setProduct(fetchedProduct)
+        }
+        fetchProduct()
+    }, [])
+
     return (
         <div className='bg-myBgGrey p-12 my-12 capitalize text-myBlack items-center flex flex-col gap-10'>
             <div>
@@ -73,10 +38,15 @@ const NewsLetter = () => {
             </div>
             {/* product Images */}
             <div className='grid md:grid-cols-6 capitalize gap-6 p-6 font-semibold text-myBlack' >
-                {Card.map((chair, index: number) => (
-                    <ul key={index}>
+                {product.map((product, index: number) => (
+                    <ul key={product._id}>
                         <li className='flex flex-col gap-6 items-center md:items-start'>
-                            <Image src={chair.image} alt='white chair image' width={200} height={200} />
+                            {product.productImage && (
+                                <Image
+                                    src={urlFor(product.productImage).url()}
+                                    alt='image'
+                                    width={250}
+                                    height={250} className='w-[200px] h-[200px] object-cover' />)}
                         </li>
 
                     </ul>

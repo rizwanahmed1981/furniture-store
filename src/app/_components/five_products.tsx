@@ -4,19 +4,20 @@ import Image from 'next/image'
 import { ShoppingCart } from 'lucide-react'
 import NewsLetter from '../_components/newsletter'
 import { client } from "@/sanity/lib/client";
-import Link from 'next/link'
-import { allProducts } from '@/sanity/lib/querie';
+import Link from 'next/link';
+import { fiveProducts } from "@/sanity/lib/querie";
 import { Product } from '../../../types/prodcuts';
 import { urlFor } from '@/sanity/lib/image'
 
 
 
-export default function Products() {
+
+export default function Products5() {
     const [product, setProduct] = useState<Product[]>([])
 
     useEffect(() => {
         async function fetchProduct() {
-            const fetchedProduct: Product[] = await client.fetch(allProducts)
+            const fetchedProduct: Product[] = await client.fetch(fiveProducts)
             setProduct(fetchedProduct)
         }
         fetchProduct()
@@ -26,13 +27,8 @@ export default function Products() {
     return (
         <div>
             <div className='py-8'>
-                {/* heading */}
-                <h1 className='text-myBlack font-semibold text-start text-2xl md:4xl px-8 my-6 uppercase'>
-                    Our Products
-                </h1>
-
                 {/* products section */}
-                <div className='grid md:grid-cols-4 capitalize gap-6 p-6 font-semibold text-myBlack' >
+                <div className='grid grid-cols-1 md:grid-cols-5 capitalize gap-6 p-6 font-semibold text-myBlack' >
                     {product.map((product) => (
                         <ul key={product._id}>
                             <Link href={`/product/${product.slug.current}`}>
@@ -42,7 +38,7 @@ export default function Products() {
                                             src={urlFor(product.productImage).url()}
                                             alt='image'
                                             width={250}
-                                            height={250} className='w-[400px] h-[400px] object-cover' />)}
+                                            height={250} className='w-[300px] h-[300px] object-cover' />)}
                                 </li>
                                 <li className='flex items-center justify-between p-4'>
                                     <div className=' text-myBlack opacity-70 flex flex-col gap-3'>
@@ -58,7 +54,6 @@ export default function Products() {
                     ))}
                 </div>
             </div>
-            <NewsLetter />
         </div>
     )
 }

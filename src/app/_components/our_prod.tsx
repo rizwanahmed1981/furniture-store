@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import whitech from '../assets/images/white_ch.png'
 import yellowch from '../assets/images/yellow_ch.png'
 import pinkch from '../assets/images/pink_ch.png'
@@ -8,9 +8,9 @@ import deskch from '../assets/images/desk_chair.png'
 import white2ch from '../assets/images/white2_ch.png'
 import wingch from '../assets/images/wing_chair.png'
 
-
 import Image from 'next/image'
 import { ShoppingCart } from 'lucide-react'
+
 
 const Card = [
     {
@@ -64,9 +64,8 @@ const Card = [
 ]
 
 
-
-
 const OurProducts = () => {
+
     return (
         <div className='py-8'>
             {/* heading */}
