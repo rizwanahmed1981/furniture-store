@@ -49,6 +49,11 @@ export const product = defineType({
       title: "Discount Percentage",
     },
     {
+      name: "inventory",
+      type: "number",
+      title: "Inventory"
+    },
+    {
       name: "isNew",
       type: "boolean",
       title: "New Badge",

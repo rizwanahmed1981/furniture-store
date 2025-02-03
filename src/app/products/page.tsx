@@ -8,7 +8,9 @@ import Link from 'next/link'
 import { allProducts } from '@/sanity/lib/querie';
 import { Product } from '../../../types/prodcuts';
 import { urlFor } from '@/sanity/lib/image'
-
+import { addToCart } from '../actions/actions'
+import { Button } from '@/components/ui/button'
+import Swal from 'sweetalert2'
 
 
 export default function Products() {
@@ -22,6 +24,19 @@ export default function Products() {
         fetchProduct()
     }, [])
 
+    const handleAddToCart = (e: React.MouseEvent, product: Product) => {
+        e.preventDefault()
+        Swal.fire({
+            position: "top-right",
+            icon: "success",
+            title: `${product.title} added to cart`,
+            showConfirmButton: false,
+            timer: 1500,
+            
+        });
+        addToCart(product)
+       
+    }
 
     return (
         <div>
@@ -50,7 +65,12 @@ export default function Products() {
 
                                         <p>Price: <span className='text-myButton'> ${product.price}</span></p>
                                     </div>
-                                    <ShoppingCart className='bg-myBgGrey w-auto' />
+                                    <Button className='bg-myButton text-white rounded-lg hover:bg-purple-400 hover:cursor-pointer shadow-lg hover:scale-110 px-4 py-2'
+                                        onClick={(e) => handleAddToCart(e, product)}
+                                    >
+
+                                        <ShoppingCart /> add to cart
+                                    </Button>
 
                                 </li>
                             </Link>
