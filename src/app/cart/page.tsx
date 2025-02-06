@@ -5,7 +5,8 @@ import { Product } from '../../../types/prodcuts'
 import { getCartItems, removeFromCart, updateCartQuantity } from '../actions/actions'
 import Swal from 'sweetalert2'
 import { urlFor } from '@/sanity/lib/image'
-import { InfoIcon } from 'lucide-react'
+import { ArrowRight, InfoIcon } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState<Product[]>([])
@@ -57,6 +58,7 @@ const CartPage = () => {
   }
 
   // Handle proceed to checkout
+  const router = useRouter();
   const handleProceed = () => {
     Swal.fire({
       title: "Proceed to Checkout",
@@ -69,53 +71,54 @@ const CartPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Success", "Your order has been successfully confirmed!", "success")
+        router.push("/checkout")
         setCartItems([])
       }
     })
   }
 
   return (
-    <div className="container mx-auto px-6 py-10">
+    <div className="container mx-auto px-6 py-10 bg-myBgGrey my-4 rounded-xl">
       <h1 className="text-3xl font-bold mb-6">Your Shopping Cart</h1>
 
       {cartItems.length === 0 ? (
-        <p className="text-myBlack text-center text-lg flex flex-row items-center justify-center gap-2"><InfoIcon/>Your cart is empty.</p>
+        <p className="text-myBlack text-center text-lg flex flex-row items-center justify-center gap-2"><InfoIcon />Your cart is empty.</p>
       ) : (
         <div className="grid gap-6">
           {cartItems.map((item) => (
             <div key={item._id} className="flex items-center justify-between border-b pb-4">
               <div className='flex flex-col md:flex-row gap-6'>
-              <div className="flex items-center gap-4">
-                {item.productImage && (
-                  <Image
-                    src={urlFor(item.productImage).url()}
-                    alt='image'
-                    width={250}
-                    height={250} className='w-[120px] h-[120px] object-cover rounded-lg' />)}
-              </div>
-
-              <div className='flex flex-col gap-4'>
-                <h2 className="text-lg font-semibold">{item.title}</h2>
-                <p className="text-gray-500">Price: ${item.price}</p>
-
-                {/* Quantity Controls */}
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => handleDecrement(item._id)}
-                    className="px-3 py-1 border rounded-md hover:bg-gray-100"
-                  >
-                    -
-                  </button>
-                  <span className="text-lg font-medium">{item.inventory}</span>
-                  <button
-                    onClick={() => handleIncrement(item._id)}
-                    className="px-3 py-1 border rounded-md hover:bg-gray-100"
-                  >
-                    +
-                  </button>
+                <div className="flex items-center gap-4">
+                  {item.productImage && (
+                    <Image
+                      src={urlFor(item.productImage).url()}
+                      alt='image'
+                      width={250}
+                      height={250} className='w-[120px] h-[120px] object-cover rounded-lg' />)}
                 </div>
 
-              </div>                
+                <div className='flex flex-col gap-4'>
+                  <h2 className="text-lg font-semibold">{item.title}</h2>
+                  <p className="text-gray-500">Price: ${item.price}</p>
+
+                  {/* Quantity Controls */}
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => handleDecrement(item._id)}
+                      className="px-3 py-1 border rounded-md hover:bg-gray-100"
+                    >
+                      -
+                    </button>
+                    <span className="text-lg font-medium">{item.inventory}</span>
+                    <button
+                      onClick={() => handleIncrement(item._id)}
+                      className="px-3 py-1 border rounded-md hover:bg-gray-100"
+                    >
+                      +
+                    </button>
+                  </div>
+
+                </div>
               </div>
 
               {/* Remove Button */}
@@ -133,9 +136,9 @@ const CartPage = () => {
             <h2 className="text-xl font-bold">Total: ${calculateTotal()}</h2>
             <button
               onClick={handleProceed}
-              className="bg-myButton text-white px-6 py-2 rounded-md hover:bg-blue-700"
+              className="bg-myButton text-white px-6 py-2 rounded-md hover:bg-blue-700 flex gap-2 items-center"
             >
-              Proceed to Checkout
+              Proceed to Checkout <ArrowRight />
             </button>
           </div>
         </div>
